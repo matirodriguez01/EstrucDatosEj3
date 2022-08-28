@@ -1,0 +1,14 @@
+from ClasePila import Pila
+
+if __name__=='__main__':
+    pila = Pila()
+    numero = int(input("Ingrese un numero:"))
+    resultado = 1
+    while numero != 0:
+        pila.apilar(numero)
+        numero = numero - 1
+
+    while not pila.es_vacia():
+        resultado = resultado * pila.desapilar()
+
+    print(f"El resultado es: {resultado}")
