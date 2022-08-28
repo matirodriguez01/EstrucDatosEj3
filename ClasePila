@@ -1,0 +1,38 @@
+class Pila:
+    __items = []
+    __tope = None
+
+    def __init__(self):
+        """ Crea una pila vacía. """
+        self.__items=[]
+        self.__tope = 0
+
+    def apilar(self, x):
+        """ Agrega el elemento x a la pila. """
+        self.__items.append(x)
+        self.__tope += 1
+
+    def desapilar(self):
+        """"" Devuelve el elemento tope y lo elimina de la pila.
+            Si la pila está vacía levanta una excepción. """
+        try:
+            self.__tope -= 1
+            return self.__items.pop()
+
+        except IndexError:
+            raise ValueError("La pila está vacía")
+
+    def es_vacia(self):
+        """ Devuelve True si la lista está vacía, False si no. """
+        bandera = True
+        if self.__tope != 0:
+            bandera = False
+        return bandera
+
+    def mostrar(self):
+        s = ""
+        indice = self.__tope
+        for i in range(self.__tope):
+            s = s + str(self.__items[indice-1])
+            indice -= 1
+        return s
